@@ -33,8 +33,8 @@ session_start();
             case 'sanphamct':
                 if(isset($_GET['idsp']) && ($_GET['idsp']>0)){
                     $id=$_GET['idsp'];
-                     $onesp=loadone_sanpham($id);
-                     include "view/sanphamct.php";
+                    $onesp=loadone_sanpham($id);
+                    include "view/sanphamct.php";
                   }else{
                       include "view/home.php";
                   }
