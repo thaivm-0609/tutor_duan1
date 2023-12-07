@@ -7,12 +7,10 @@
               <div class="row2 mb10 form_content_container">
                   <label> Danh mục </label> <br>
                   <select name="iddm" id="">
-<!--                      <option value="">Danh mục 1</option>-->
-<!--                      <option value="">Danh mục 2</option>-->
                       <?php
                       foreach ($listdanhmuc as $danhmuc){
                           extract($danhmuc);
-                          echo '<option value="'.$id.'">'.$name.'</option>';
+                          echo '<option value="'.$id.'">'.$nameDM.'</option>';
                       }
                       ?>
                   </select>

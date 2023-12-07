@@ -4,6 +4,7 @@ session_start();
     include "model/danhmuc.php";
     include "model/sanpham.php";
     include "model/taikhoan.php";
+    include "model/binhluan.php";
     include "global.php";
     include "view/header.php";
     $sanpham=loadall_sanpham_home();
@@ -31,9 +32,16 @@ session_start();
                 include "view/sanpham.php";
                 break;
             case 'sanphamct':
+                if (isset($_POST['guibinhluan'])) {
+                    $idpro = $_POST['idpro'];
+                    $noidung = $_POST['noidung'];
+                    $iduser = $_SESSION['user']['id'];
+                    insert_binhluan($idpro,$noidung,$iduser);
+                }
                 if(isset($_GET['idsp']) && ($_GET['idsp']>0)){
                     $id=$_GET['idsp'];
                     $onesp=loadone_sanpham($id);
+                    $dsbl=load_binhluan_theosp($id);
                     include "view/sanphamct.php";
                   }else{
                       include "view/home.php";

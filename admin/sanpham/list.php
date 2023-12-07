@@ -1,6 +1,6 @@
 <div class="row2">
     <div class="row2 font_title">
-        <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
+        <h1>DANH SÁCH HÀNG HÓA</h1>
     </div>
     <div class="row2 form_content ">
         <form action="#" method="POST">
@@ -20,11 +20,12 @@
                     <?php
                     foreach ($listsanpham as $sanpham) {
                         extract($sanpham);
+                        
                         $hinhpath = "../upload/" . $img;
-
-                        $suasp = "index.php?act=suasp&idsp=" . $id;
-                        $hard_delete = "index.php?act=hard_delete&idsp=" . $id;
-                        $soft_delete = "index.php?act=soft_delete&idsp=" . $id;
+                        
+                        $suasp = "index.php?act=suasp&idsp=" . $idsp;
+                        $hard_delete = "index.php?act=hard_delete&idsp=" . $idsp;
+                        $soft_delete = "index.php?act=soft_delete&idsp=" . $idsp;
                         if (is_file($hinhpath)) {
                             $hinhpath = "<img src= '" . $hinhpath . "' width='100px' height='100px'>";
                         } else {
@@ -32,7 +33,7 @@
                         }
                         echo '<tr>
                             <td><input type="checkbox" name="" id=""></td>
-                            <td>' . $id . '</td>
+                            <td>' . $idsp . '</td>
                             <td>' . $name . '</td>
                             <td>' . $price . '</td>
                             <td>' . $hinhpath . '</td>
